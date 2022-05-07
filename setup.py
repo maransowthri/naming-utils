@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='nameing_utils',
+    name='naming_utils',
     version='0.1',
     license='MIT',
     author="Maran Sowthri Kalailingam",
