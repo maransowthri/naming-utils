@@ -1,2 +1,3 @@
-# log-file-utils
-Simple utility for creating a log file with unique time stamps
+# file-utils
+
+Simple utility for generating unique names with timestamps.
