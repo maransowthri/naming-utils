@@ -1,7 +1,7 @@
 from distutils import extension
 import unittest
 
-from file_utils import unique_name_with_ts, unique_names_with_ts
+from file_name_utils import unique_name_with_ts, unique_names_with_ts
 
 
 class TestFileUtils(unittest.TestCase):

@@ -59,5 +59,3 @@ def unique_names_with_ts(count=1, path=None, extension=None):
             break
         
     return list(filenames)
-
-print(len(unique_names_with_ts(10, 'sample', 'txt')))
