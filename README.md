@@ -1,3 +1,3 @@
-# file-utils
+# naming-utils
 
 Simple utility for generating unique names with timestamps.
