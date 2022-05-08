@@ -6,10 +6,10 @@ import os
 
 def unique_name_with_ts(path=None, extension=None):
     """
-    Create a timestamp file name.
+    Create a unique name with timestamp.
     :param path: path to file
     :param extension: file extension
-    :return: file name
+    :return: unique name
     """
 
     if path and type(path) is not str:
@@ -19,30 +19,30 @@ def unique_name_with_ts(path=None, extension=None):
         raise TypeError('extension must be a string')
 
     while True:
-        file_name = datetime.now().strftime('%Y%m%d_%H%M%S_%f') + str(randint(1, 1000))
+        name = datetime.now().strftime('%Y%m%d_%H%M%S_%f') + str(randint(1, 1000))
         
         if extension:
             if '.' in extension:
-                file_name += extension
+                name += extension
             else:
-                file_name += '.' + extension
+                name += '.' + extension
         
         if path:
-            file_name = os.path.join(path, file_name)
+            name = os.path.join(path, name)
 
-        if not os.path.exists(file_name):
+        if not os.path.exists(name):
             break
 
-    return file_name
+    return name
 
 
 def unique_names_with_ts(count=1, path=None, extension=None):
     """
-    Create list of timestamp file names.
-    :param count: number of file names to create
+    Create list of unique names with timestamp.
+    :param count: number of names to create
     :param path: path to file
     :param extension: file extension
-    :return: file name
+    :return: unique names
     """
 
     if type(count) is not int:
@@ -51,11 +51,11 @@ def unique_names_with_ts(count=1, path=None, extension=None):
     if count < 1:
         raise ValueError('count must be greater than 0')
 
-    filenames = set()
+    names = set()
 
     while True:
-        filenames.add(unique_name_with_ts(path, extension))
-        if len(filenames) == count:
+        names.add(unique_name_with_ts(path, extension))
+        if len(names) == count:
             break
         
-    return list(filenames)
+    return list(names)

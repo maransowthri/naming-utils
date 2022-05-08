@@ -1,17 +1,16 @@
-from distutils import extension
 import unittest
 
-from file_name_utils import unique_name_with_ts, unique_names_with_ts
+from naming_utils import unique_name_with_ts, unique_names_with_ts
 
 
-class TestFileUtils(unittest.TestCase):
+class TestNamingUtils(unittest.TestCase):
     def test_unique_name_with_ts(self):
         for path, extension in zip(['', 'prod', 'dev'], ['', 'log', 'txt']):
-            filename = unique_name_with_ts(path, extension)
-            self.assertTrue(filename)
-            self.assertGreaterEqual(len(filename), 20)
-            self.assertTrue(filename.endswith(extension))
-            self.assertTrue(filename.startswith(path))
+            name = unique_name_with_ts(path, extension)
+            self.assertTrue(name)
+            self.assertGreaterEqual(len(name), 20)
+            self.assertTrue(name.endswith(extension))
+            self.assertTrue(name.startswith(path))
         
         self.assertRaises(TypeError, unique_name_with_ts, 1, 'txt')
         self.assertRaises(TypeError, unique_name_with_ts, ['prod'], 'txt')
@@ -20,8 +19,8 @@ class TestFileUtils(unittest.TestCase):
     
     def test_unique_names_with_ts(self):
         for count, path, extension in zip([1, 10], ['', 'dev'], ['', 'log']):
-            filenames = unique_names_with_ts(count, path, extension)
-            self.assertEqual(len(filenames), count)
+            names = unique_names_with_ts(count, path, extension)
+            self.assertEqual(len(names), count)
         
         self.assertRaises(TypeError, unique_names_with_ts, '1', 'prod', 'log')
         self.assertRaises(ValueError, unique_names_with_ts, 0, 'prod', 'log')
