@@ -1,6 +1,6 @@
 import unittest
 
-from naming_utils import unique_name_with_ts, unique_names_with_ts
+from src.naming_utils import unique_name_with_ts, unique_names_with_ts
 
 
 class TestNamingUtils(unittest.TestCase):
